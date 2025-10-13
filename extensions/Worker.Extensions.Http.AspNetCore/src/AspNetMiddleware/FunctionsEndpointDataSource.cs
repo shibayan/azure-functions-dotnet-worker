@@ -110,6 +110,7 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.AspNetMidd
 
                     var methods = functionBinding.Methods ?? [];
                     endpointBuilder.Metadata.Add(new HttpMethodMetadata(methods));
+                    endpointBuilder.Metadata.Add(new RouteNameMetadata(functionName));
 
                     // no need to look at other bindings for this function
                     return endpointBuilder.Build();
